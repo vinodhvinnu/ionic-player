@@ -1,0 +1,8 @@
+{
+  "name": "ionic-player",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
