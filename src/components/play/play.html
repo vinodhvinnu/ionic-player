@@ -1,0 +1,9 @@
+<div class="current-play" *ngIf="globalDataProvider.currentSongInstance">
+  <ion-list no-lines>
+    <ion-item>
+      {{globalDataProvider.currentSong.name}}
+      <ion-icon name="play" *ngIf="globalDataProvider.isPlaying" item-end (click)="togglePlay()"></ion-icon>
+      <ion-icon name="pause" *ngIf="!globalDataProvider.isPlaying" item-end (click)="togglePlay()"></ion-icon>
+    </ion-item>
+  </ion-list>
+</div>

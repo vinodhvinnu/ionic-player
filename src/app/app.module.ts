@@ -16,6 +16,7 @@ import { FilePath } from '@ionic-native/file-path';
 import { Media } from '@ionic-native/media';
 import { MusicControls } from '@ionic-native/music-controls';
 import { GlobalDataProvider } from '../providers/global-data/global-data';
+import { PlayComponent } from '../components/play/play';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { GlobalDataProvider } from '../providers/global-data/global-data';
     SongsPage,
     VideosPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    PlayComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { GlobalDataProvider } from '../providers/global-data/global-data';
     SongsPage,
     VideosPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    PlayComponent
   ],
   providers: [
     StatusBar,

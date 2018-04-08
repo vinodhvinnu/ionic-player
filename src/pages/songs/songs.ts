@@ -25,6 +25,7 @@ export class SongsPage {
     if (this.globalDataProvider.currentSongInstance && this.globalDataProvider.currentSongInstance != null) {
       this.globalDataProvider.currentSongInstance.stop();
     }
+    this.globalDataProvider.currentSong = file;
     this.globalDataProvider.currentSongInstance = this.media.create(file.src);
     this.globalDataProvider.currentSongInstance.play();
   }

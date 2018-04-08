@@ -1,0 +1,10 @@
+play {
+    .current-play {
+        position: fixed;
+        z-index: 1;
+        bottom: 42px;
+        left: 0;
+        height: 50px;
+        width: 100%;
+    }
+}
