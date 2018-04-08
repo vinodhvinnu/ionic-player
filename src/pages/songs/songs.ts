@@ -165,9 +165,12 @@ export class SongsPage {
             break;
         }
       }
-    });
-    this.musicControls.listen(); // activates the observable above
 
-    this.musicControls.updateIsPlaying(true);
+      events(action);
+      this.musicControls.listen(); // activates the observable above
+
+      this.musicControls.updateIsPlaying(true);
+    });
+    
   }
 }

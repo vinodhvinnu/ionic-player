@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { File } from "@ionic-native/file";
 import { Diagnostic } from "@ionic-native/diagnostic";
-import { FilePath } from '@ionic-native/file-path';
-import { Media, MediaObject } from '@ionic-native/media';
 
 @Component({
   selector: 'page-videos',
@@ -13,9 +11,8 @@ export class VideosPage {
 
   public folderCount: any;
   public fileList: any = [];
-  public fileInstance: MediaObject = null;
 
-  constructor(public navCtrl: NavController, public file: File, public diagnostic: Diagnostic, public platform: Platform, private media: Media) {
+  constructor(public navCtrl: NavController, public file: File, public diagnostic: Diagnostic, public platform: Platform) {
     this.platform.ready().then(() => {
       //the first parameter file.externalRootDirectory is for listing all files on application's root directory
       //The second parameter is the name of the folder. You can specify the nested folder here. e.g. 'Music/Coldplay'

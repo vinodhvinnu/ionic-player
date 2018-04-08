@@ -43,7 +43,6 @@ import { MusicControls } from '@ionic-native/music-controls';
     FilePath,
     Diagnostic,
     Media,
-    VideoPlayer,
     MusicControls,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
