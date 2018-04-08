@@ -4,7 +4,6 @@ import { File } from "@ionic-native/file";
 import { Diagnostic } from "@ionic-native/diagnostic";
 import { FilePath } from '@ionic-native/file-path';
 import { Media, MediaObject } from '@ionic-native/media';
-import { VideoPlayer, VideoOptions } from '@ionic-native/video-player';
 
 @Component({
   selector: 'page-videos',
@@ -16,8 +15,7 @@ export class VideosPage {
   public fileList: any = [];
   public fileInstance: MediaObject = null;
 
-  constructor(public navCtrl: NavController, public file: File, public diagnostic: Diagnostic, public platform: Platform, private media: Media,
-    private videoPlayer: VideoPlayer) {
+  constructor(public navCtrl: NavController, public file: File, public diagnostic: Diagnostic, public platform: Platform, private media: Media) {
     this.platform.ready().then(() => {
       //the first parameter file.externalRootDirectory is for listing all files on application's root directory
       //The second parameter is the name of the folder. You can specify the nested folder here. e.g. 'Music/Coldplay'
@@ -67,10 +65,6 @@ export class VideosPage {
 
 
   public playFile(item){
-    this.videoPlayer.play("file:///android_asset/www/animation-2.mp4").then(() => {
-      console.log('video completed');
-    }).catch(err => {
-      console.log(err);
-    });
+    
   }
 }
