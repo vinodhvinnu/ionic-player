@@ -1,10 +1,8 @@
-<ion-content>
-  <ion-list>
-    <ion-list-header>Songs</ion-list-header>
-    <ul>
-      <li *ngFor="let file of fileList" (click)="playFile(file)" style="padding: 10px"> 
-        {{ file.name }}
-      </li>
-     </ul>
+<ion-content padding>
+  <h5>Songs</h5>
+  <ion-list no-lines>
+    <button ion-item *ngFor="let file of fileList" (click)="playFile($event, file)">
+      {{ file.name }}
+    </button> 
   </ion-list>
 </ion-content>

@@ -13,7 +13,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { File } from "@ionic-native/file";
 import { Diagnostic } from "@ionic-native/diagnostic";
 import { FilePath } from '@ionic-native/file-path';
-import { Media, MediaObject } from '@ionic-native/media';
+import { Media } from '@ionic-native/media';
 import { MusicControls } from '@ionic-native/music-controls';
 
 @NgModule({
