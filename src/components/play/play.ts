@@ -12,7 +12,7 @@ export class PlayComponent {
   }
 
   togglePlay(){
-    this.globalDataProvider.isPlaying = !this.globalDataProvider.isPlaying;
     this.globalDataProvider.isPlaying ? this.globalDataProvider.currentSongInstance.pause() : this.globalDataProvider.currentSongInstance.play();
+    this.globalDataProvider.isPlaying = !this.globalDataProvider.isPlaying;
   }
 }

@@ -18,6 +18,7 @@ import { Media } from '@ionic-native/media';
 import { MusicControls } from '@ionic-native/music-controls';
 import { GlobalDataProvider } from '../providers/global-data/global-data';
 import { PlayComponent } from '../components/play/play';
+import { SearchFilterPipe } from '../pipes/search-filter/search-filter';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PlayComponent } from '../components/play/play';
     PlaylistsPage,
     HomePage,
     TabsPage,
-    PlayComponent
+    PlayComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -40,8 +42,7 @@ import { PlayComponent } from '../components/play/play';
     VideosPage,
     PlaylistsPage,
     HomePage,
-    TabsPage,
-    PlayComponent
+    TabsPage
   ],
   providers: [
     StatusBar,
