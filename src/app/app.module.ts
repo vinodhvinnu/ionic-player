@@ -5,6 +5,7 @@ import { IonicPlayer } from './app.component';
 
 import { VideosPage } from '../pages/videos/videos';
 import { SongsPage } from '../pages/songs/songs';
+import { PlaylistsPage } from '../pages/playlists/playlists';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -23,6 +24,7 @@ import { PlayComponent } from '../components/play/play';
     IonicPlayer,
     SongsPage,
     VideosPage,
+    PlaylistsPage,
     HomePage,
     TabsPage,
     PlayComponent
@@ -36,6 +38,7 @@ import { PlayComponent } from '../components/play/play';
     IonicPlayer,
     SongsPage,
     VideosPage,
+    PlaylistsPage,
     HomePage,
     TabsPage,
     PlayComponent
