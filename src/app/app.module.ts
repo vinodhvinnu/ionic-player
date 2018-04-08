@@ -15,6 +15,7 @@ import { Diagnostic } from "@ionic-native/diagnostic";
 import { FilePath } from '@ionic-native/file-path';
 import { Media } from '@ionic-native/media';
 import { MusicControls } from '@ionic-native/music-controls';
+import { GlobalDataProvider } from '../providers/global-data/global-data';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { MusicControls } from '@ionic-native/music-controls';
     Diagnostic,
     Media,
     MusicControls,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GlobalDataProvider
   ]
 })
 export class AppModule {}

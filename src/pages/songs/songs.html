@@ -1,7 +1,7 @@
 <ion-content padding>
   <h5>Songs</h5>
   <ion-list no-lines>
-    <button ion-item *ngFor="let file of fileList" (click)="playFile($event, file)">
+    <button ion-item *ngFor="let file of globalDataProvider.songsList" (click)="playFile($event, file)">
       {{ file.name }}
     </button> 
   </ion-list>
