@@ -1,33 +1,51 @@
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicPlayer } from './app.component';
 
-import { MyApp } from './app.component';
+import { VideosPage } from '../pages/videos/videos';
+import { SongsPage } from '../pages/songs/songs';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { File } from "@ionic-native/file";
+import { Diagnostic } from "@ionic-native/diagnostic";
+import { FilePath } from '@ionic-native/file-path';
+import { Media, MediaObject } from '@ionic-native/media';
+import { VideoPlayer } from '@ionic-native/video-player';
+import { MusicControls } from '@ionic-native/music-controls';
 
 @NgModule({
   declarations: [
-    MyApp,
+    IonicPlayer,
+    SongsPage,
+    VideosPage,
     HomePage,
-    ListPage
+    TabsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(IonicPlayer)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
+    IonicPlayer,
+    SongsPage,
+    VideosPage,
     HomePage,
-    ListPage
+    TabsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    File,
+    FilePath,
+    Diagnostic,
+    Media,
+    VideoPlayer,
+    MusicControls,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
