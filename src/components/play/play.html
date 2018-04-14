@@ -2,8 +2,10 @@
   <ion-list no-lines>
     <ion-item>
       {{globalDataProvider.currentSong.name}}
+      <ion-icon item-start name="md-fastforward" (click)="seekTo()"></ion-icon>
       <ion-icon name="play" *ngIf="!globalDataProvider.isPlaying" item-end (click)="togglePlay()"></ion-icon>
       <ion-icon name="pause" *ngIf="globalDataProvider.isPlaying" item-end (click)="togglePlay()"></ion-icon>
+      <ion-icon item-end name="ios-fastforward-outline" (click)="next()"></ion-icon>
     </ion-item>
   </ion-list>
 </div>

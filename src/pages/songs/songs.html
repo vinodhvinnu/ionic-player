@@ -1,7 +1,7 @@
 <ion-content padding>
   <h5> <ion-input placeholder="Songs" clearInput [(ngModel)]="text"></ion-input> </h5>
   <ion-list no-lines>
-    <button ion-item *ngFor="let file of globalDataProvider.songsList | searchFilter:text" (click)="playFile($event, file)">
+    <button ion-item *ngFor="let file of globalDataProvider.songsList | searchFilter: text; let i = index; trackBy: index" (click)="playFile($event, file, i)">
       {{ file.name }}
     </button>
   </ion-list>

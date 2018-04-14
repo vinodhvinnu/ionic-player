@@ -7,8 +7,8 @@ play {
         height: 50px;
         width: 100%;
         ion-item {
-            background-color: #488aff !important;
-            color: #fff !important;
+            background-color: map-get($colors, primary) !important;
+            color: map-get($colors, light) !important;
             ion-icon {
                 margin: 0 !important;
                 padding: 11px 15px !important;
