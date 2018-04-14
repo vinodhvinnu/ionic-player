@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { GlobalDataProvider } from '../../providers/global-data/global-data';
 import { Media, MediaObject } from '@ionic-native/media';
+import { NavController } from 'ionic-angular';
+import { PlayPage } from '../../pages/play/play';
 
 @Component({
   selector: 'play',
@@ -8,7 +10,7 @@ import { Media, MediaObject } from '@ionic-native/media';
 })
 export class PlayComponent {
 
-  constructor(public globalDataProvider: GlobalDataProvider, public media: Media) {
+  constructor(public globalDataProvider: GlobalDataProvider, public media: Media, public navCtrl: NavController) {
     console.log('Hello PlayComponent Component');
   }
 
@@ -32,5 +34,9 @@ export class PlayComponent {
       this.globalDataProvider.currentSongInstance = this.media.create(this.globalDataProvider.songsList[index].src);
       this.globalDataProvider.currentSongInstance.play();
     }
+  }
+
+  showPlayScreen(){
+    this.navCtrl.push(PlayPage);
   }
 }

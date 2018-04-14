@@ -3,5 +3,10 @@ page-songs {
         .scroll-content {
             padding-bottom: 20px !important;
         }
+        ion-list.songs-list {
+            .item {
+                background: none !important;
+            }
+        }
     }
 }

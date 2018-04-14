@@ -20,6 +20,7 @@ import { GlobalDataProvider } from '../providers/global-data/global-data';
 import { PlayComponent } from '../components/play/play';
 import { SearchFilterPipe } from '../pipes/search-filter/search-filter';
 import { PlayPage } from '../pages/play/play';
+import { SettingsPage } from '../pages/settings/settings';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { PlayPage } from '../pages/play/play';
     SongsPage,
     VideosPage,
     PlaylistsPage,
+    SettingsPage,
     HomePage,
     TabsPage,
     PlayComponent,
@@ -35,7 +37,10 @@ import { PlayPage } from '../pages/play/play';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(IonicPlayer)
+    IonicModule.forRoot(IonicPlayer, {
+        // Tabs config
+        tabsHideOnSubPages: true,
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,6 +49,7 @@ import { PlayPage } from '../pages/play/play';
     SongsPage,
     VideosPage,
     PlaylistsPage,
+    SettingsPage,
     HomePage,
     TabsPage
   ],

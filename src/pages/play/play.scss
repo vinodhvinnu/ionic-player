@@ -1,3 +1,34 @@
 page-play {
-background-image: url('file:////C:/wamp64/www/vijay/ionic-player/download.jpg');
+    ion-header {
+        ion-icon {
+            color: map-get($colors, light);
+            float: right;
+            padding: 0 20px;
+            font-size: 1.5em;
+        }
+    }
+    ion-content {
+        ion-icon {
+            color: map-get($colors, light);
+        }
+    }
+    ion-footer {
+        ion-item {
+            background: none !important;
+            .item-inner {
+                border: none !important;
+            }
+        }
+        ion-grid {
+            height: 72px;
+            align-items: center;
+            ion-fab {
+                position:  relative !important;
+            }
+        }
+    }
+    .toolbar-background-md {
+        border-color: none !important;
+        background: none !important;
+    }
 }
