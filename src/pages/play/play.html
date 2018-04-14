@@ -1,12 +1,38 @@
 <ion-header>
 
   <ion-navbar>
+      <button ion-button menuToggle right>Toggle Right Menu</button>
     <ion-title>'play'</ion-title>
+    
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  
+  <ion-footer>
+      <ion-toolbar>
+        <ion-item style="background-color: #f8f8f8">
+                  <ion-range min="0.0" max="5.0" >
+                    <ion-label range-left>0.0</ion-label>
+                    <ion-label range-right>5.0</ion-label>
+                  </ion-range>
+                </ion-item>
+            <ion-grid>
+            <ion-row>
+              <ion-col col-5 ><button ion-button color="light" style="float:right;border-radius: 12px;">
+                <ion-icon name="skip-backward" class="rt"></ion-icon></button>
+              </ion-col>
+              <ion-col col-2><button ion-button color="light" style="border-radius: 12px;">
+                <ion-icon name="play"></ion-icon></button>
+              </ion-col>
+              <ion-col col-5><button ion-button color="light" style="border-radius: 12px;">
+                <ion-icon name="skip-forward"></ion-icon></button>
+              </ion-col>
+            </ion-row>
+          </ion-grid> 
+      </ion-toolbar>
+    </ion-footer>
+    
 </ion-content>

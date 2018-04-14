@@ -19,10 +19,12 @@ import { MusicControls } from '@ionic-native/music-controls';
 import { GlobalDataProvider } from '../providers/global-data/global-data';
 import { PlayComponent } from '../components/play/play';
 import { SearchFilterPipe } from '../pipes/search-filter/search-filter';
+import { PlayPage } from '../pages/play/play';
 
 @NgModule({
   declarations: [
     IonicPlayer,
+    PlayPage,
     SongsPage,
     VideosPage,
     PlaylistsPage,
@@ -38,6 +40,7 @@ import { SearchFilterPipe } from '../pipes/search-filter/search-filter';
   bootstrap: [IonicApp],
   entryComponents: [
     IonicPlayer,
+    PlayPage,
     SongsPage,
     VideosPage,
     PlaylistsPage,
