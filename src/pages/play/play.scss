@@ -13,6 +13,19 @@ page-play {
         }
     }
     ion-footer {
+        .song-name {
+            color: map-get($colors, light);
+            text-align: center;
+            padding: 15px;
+            width: 100%;
+        }
+        .control-col {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            font-size: 2.5rem;
+            color: map-get($colors, light);
+        }
         ion-item {
             background: none !important;
             .item-inner {
@@ -20,7 +33,7 @@ page-play {
             }
         }
         ion-grid {
-            height: 72px;
+            height: 100px;
             align-items: center;
             ion-fab {
                 position:  relative !important;
