@@ -21,17 +21,21 @@ export class SongsPage {
     console.log('ionViewDidLoad SongsPage');
   }
 
-  public playFile(event, file, index) {
-    this.globalDataProvider.currentSongIndex = index;
+  public playFile(event, file) {
+    
     if (this.globalDataProvider.currentSongInstance && this.globalDataProvider.currentSongInstance != null) {
       this.globalDataProvider.currentSongInstance.stop();
     }
-    this.globalDataProvider.currentSong = this.globalDataProvider.songsList[this.globalDataProvider.currentSongIndex];
-    this.globalDataProvider.currentSongInstance = this.media.create(this.globalDataProvider.songsList[this.globalDataProvider.currentSongIndex].src);
+    this.globalDataProvider.currentSong = file;
+    this.globalDataProvider.currentSongIndex = file.index;
+    this.globalDataProvider.currentSongInstance = this.media.create(file.src);
     this.globalDataProvider.currentSongInstance.play();
-
+    this.globalDataProvider.isPlaying = true;
     this.globalDataProvider.currentSongInstance.onSuccess.subscribe(() => {
-      if(this.globalDataProvider.songsList[this.globalDataProvider.currentSongIndex+1]){
+
+    });
+
+    /* if(this.globalDataProvider.songsList[this.globalDataProvider.currentSongIndex+1]){
         this.globalDataProvider.currentSongIndex = this.globalDataProvider.currentSongIndex+1;
         this.globalDataProvider.currentSongInstance.stop();
         this.globalDataProvider.seekToNumber = 10000;
@@ -40,10 +44,8 @@ export class SongsPage {
         this.globalDataProvider.currentSongInstance.play();
       } else {
         this.globalDataProvider.isPlaying = false;
-      }
+      } */
       //this.globalDataProvider.currentSongInstance.release();
-    });
-
     /* setInterval(()=>{
       // get current playback position
       this.globalDataProvider.currentSongInstance.getCurrentPosition().then((position) => {

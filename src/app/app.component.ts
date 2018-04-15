@@ -23,26 +23,29 @@ export class IonicPlayer {
       statusBar.styleDefault();
       splashScreen.hide();
       this.readFiles();
+      /* setTimeout(()=>{
+        console.log(this.globalDataProvider.songsList.length);
+      }, 5000); */
     });
   }
 
   private readFiles(){
     //the first parameter file.externalRootDirectory is for listing all files on application's root directory
-      //The second parameter is the name of the folder. You can specify the nested folder here. e.g. 'Music/Coldplay'
-      this.file.listDir(this.file.externalRootDirectory, '').then((result) => {
-        for (let item of result) {
-          if (item.isDirectory == true && item.name != '.' && item.name != '..') {
-            this.folderCount++;
-            this.getFileList(item.name);
-          } else if (item.isFile == true && item.name.includes('.mp3') && !item.fullPath.includes('WhatsApp') && !item.fullPath.includes('Android')) {
-            this.globalDataProvider.songsList.push({ name: item.name, src: item.fullPath });
-          } else if (item.isFile == true && item.name.includes('.mp4') && !item.fullPath.includes('WhatsApp') && !item.fullPath.includes('Android')) {
-            this.globalDataProvider.videosList.push({ name: item.name, src: item.fullPath });
-          }
+    //The second parameter is the name of the folder. You can specify the nested folder here. e.g. 'Music/Coldplay'
+    this.file.listDir(this.file.externalRootDirectory, '').then((result) => {
+      for (let item of result) {
+        if (item.isDirectory == true && item.name != '.' && item.name != '..') {
+          this.folderCount++;
+          this.getFileList(item.name);
+        } else if (item.isFile == true && item.name.includes('.mp3') && !item.fullPath.includes('WhatsApp') && !item.fullPath.includes('Android')) {
+          this.globalDataProvider.songsList.push({ index: this.globalDataProvider.songsList.length+1, name: item.name, src: item.fullPath });
+        } else if (item.isFile == true && item.name.includes('.mp4') && !item.fullPath.includes('WhatsApp') && !item.fullPath.includes('Android')) {
+          this.globalDataProvider.videosList.push({ index: this.globalDataProvider.videosList.length+1, name: item.name, src: item.fullPath });
         }
-      },(error) => {
-          console.log(error);
-      });
+      }
+    },(error) => {
+        console.log(error);
+    });
   }
 
   private getFileList(path: string): any {
@@ -52,9 +55,9 @@ export class IonicPlayer {
         if (item.isDirectory == true && item.name != '.' && item.name != '..') {
           this.getFileList(path + '/' + item.name);
         }  else if (item.isFile == true && item.name.includes('.mp3') && !item.fullPath.includes('WhatsApp') && !item.fullPath.includes('Android')) {
-          this.globalDataProvider.songsList.push({ name: item.name, src: item.fullPath });
+          this.globalDataProvider.songsList.push({ index: this.globalDataProvider.songsList.length+1, name: item.name, src: item.fullPath });
         } else if (item.isFile == true && item.name.includes('.mp4') && !item.fullPath.includes('WhatsApp') && !item.fullPath.includes('Android')) {
-          this.globalDataProvider.videosList.push({ name: item.name, src: item.fullPath });
+          this.globalDataProvider.videosList.push({ index: this.globalDataProvider.videosList.length+1, name: item.name, src: item.fullPath });
         }
       }
     }, (error) => {

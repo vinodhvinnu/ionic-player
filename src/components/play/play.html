@@ -1,7 +1,13 @@
 <div class="current-play" *ngIf="globalDataProvider.currentSongInstance">
   <ion-list no-lines>
     <ion-item>
-      <ion-label (click)="showPlayScreen()">{{globalDataProvider.currentSong.name}}</ion-label>
+      <ion-label (click)="showPlayScreen()">
+          <ion-slides>
+            <ion-slide>
+                <h1 class="song-name">{{globalDataProvider.currentSong.name}}</h1>
+            </ion-slide>
+          </ion-slides>
+      </ion-label>
       <!-- <ion-icon item-start name="md-fastforward" (click)="seekTo()"></ion-icon> -->
       <ion-icon name="play" *ngIf="!globalDataProvider.isPlaying" item-end (click)="togglePlay()"></ion-icon>
       <ion-icon name="pause" *ngIf="globalDataProvider.isPlaying" item-end (click)="togglePlay()"></ion-icon>
@@ -9,3 +15,5 @@
     </ion-item>
   </ion-list>
 </div>
+
+

@@ -36,6 +36,10 @@ export class PlayComponent {
     }
   }
 
+  slideSong() {
+    console.log('Song Changed');
+  }
+
   showPlayScreen(){
     this.navCtrl.push(PlayPage);
   }
