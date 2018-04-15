@@ -16,6 +16,8 @@ import { Diagnostic } from "@ionic-native/diagnostic";
 import { FilePath } from '@ionic-native/file-path';
 import { Media } from '@ionic-native/media';
 import { MusicControls } from '@ionic-native/music-controls';
+import { StreamingMedia } from '@ionic-native/streaming-media';
+
 import { GlobalDataProvider } from '../providers/global-data/global-data';
 import { PlayComponent } from '../components/play/play';
 import { SearchFilterPipe } from '../pipes/search-filter/search-filter';
@@ -61,6 +63,7 @@ import { SettingsPage } from '../pages/settings/settings';
     Diagnostic,
     Media,
     MusicControls,
+    StreamingMedia,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GlobalDataProvider
   ]

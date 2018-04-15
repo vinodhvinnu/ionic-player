@@ -1,9 +1,9 @@
 <ion-content padding>
-  <h5>Videos</h5>
-  <ion-list no-lines>
-    <button ion-item *ngFor="let file of globalDataProvider.videosList" (click)="playFile($event, file)">
+  <h5> <ion-input placeholder="Videos" clearInput [(ngModel)]="text"></ion-input> </h5>
+  <ion-list no-lines class="videos-list">
+    <button ion-item *ngFor="let file of globalDataProvider.videosList | searchFilter: text" (click)="playFile($event, file)">
       {{ file.name }}
-    </button> 
+    </button>
   </ion-list>
   <play></play>
 </ion-content>

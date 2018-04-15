@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
+
 import { GlobalDataProvider } from '../../providers/global-data/global-data';
 
 @IonicPage()
@@ -9,7 +11,8 @@ import { GlobalDataProvider } from '../../providers/global-data/global-data';
 })
 export class VideosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public globalDataProvider: GlobalDataProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public globalDataProvider: GlobalDataProvider,
+    private streamingMedia: StreamingMedia) {
   }
 
   ionViewDidLoad() {
@@ -17,7 +20,12 @@ export class VideosPage {
   }
 
   public playFile(event, file){
-    
+    let options: StreamingVideoOptions = {
+      successCallback: () => { console.log('Video played') },
+      errorCallback: (e) => { console.log('Error streaming') },
+      orientation: 'landscape'
+    };
+    this.streamingMedia.playVideo(file.fullPath, options);
   }
 
 }

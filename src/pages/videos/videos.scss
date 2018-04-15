@@ -1,3 +1,12 @@
 page-videos {
-
+    ion-content {
+        .scroll-content {
+            padding-bottom: 20px !important;
+        }
+        ion-list.videos-list {
+            .item {
+                background: none !important;
+            }
+        }
+    }
 }
