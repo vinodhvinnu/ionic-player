@@ -38,9 +38,9 @@ export class IonicPlayer {
           this.folderCount++;
           this.getFileList(item.name);
         } else if (item.isFile == true && item.name.includes('.mp3') && !item.fullPath.includes('WhatsApp') && !item.fullPath.includes('Android')) {
-          this.globalDataProvider.songsList.push({ index: this.globalDataProvider.songsList.length+1, name: item.name, src: item.fullPath });
+          this.globalDataProvider.songsList.push({ index: this.globalDataProvider.songsList.length+1, name: item.name, fullPath: item.fullPath, nativeURL: item.nativeURL });
         } else if (item.isFile == true && item.name.includes('.mp4') && !item.fullPath.includes('WhatsApp') && !item.fullPath.includes('Android')) {
-          this.globalDataProvider.videosList.push({ index: this.globalDataProvider.videosList.length+1, name: item.name, src: item.fullPath, fullPath: item.nativeURL });
+          this.globalDataProvider.videosList.push({ index: this.globalDataProvider.videosList.length+1, name: item.name, fullPath: item.fullPath, nativeURL: item.nativeURL });
         }
       }
     },(error) => {
@@ -55,9 +55,10 @@ export class IonicPlayer {
         if (item.isDirectory == true && item.name != '.' && item.name != '..') {
           this.getFileList(path + '/' + item.name);
         }  else if (item.isFile == true && item.name.includes('.mp3') && !item.fullPath.includes('WhatsApp') && !item.fullPath.includes('Android')) {
-          this.globalDataProvider.songsList.push({ index: this.globalDataProvider.songsList.length+1, name: item.name, src: item.fullPath });
+          //console.log(item);
+          this.globalDataProvider.songsList.push({ index: this.globalDataProvider.songsList.length+1, name: item.name, fullPath: item.fullPath, nativeURL: item.nativeURL });
         } else if (item.isFile == true && item.name.includes('.mp4') && !item.fullPath.includes('WhatsApp') && !item.fullPath.includes('Android')) {
-          this.globalDataProvider.videosList.push({ index: this.globalDataProvider.videosList.length+1, name: item.name, src: item.fullPath, fullPath: item.nativeURL });
+          this.globalDataProvider.videosList.push({ index: this.globalDataProvider.videosList.length+1, name: item.name, fullPath: item.fullPath, nativeURL: item.nativeURL });
         }
       }
     }, (error) => {

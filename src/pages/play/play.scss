@@ -37,6 +37,9 @@ page-play {
             align-items: center;
             ion-fab {
                 position:  relative !important;
+                .play-icon {
+                    margin-left: 1rem;
+                }
             }
         }
     }

@@ -23,6 +23,7 @@ import { PlayComponent } from '../components/play/play';
 import { SearchFilterPipe } from '../pipes/search-filter/search-filter';
 import { PlayPage } from '../pages/play/play';
 import { SettingsPage } from '../pages/settings/settings';
+import { MusicControlsProvider } from '../providers/music-controls/music-controls';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { SettingsPage } from '../pages/settings/settings';
     MusicControls,
     StreamingMedia,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GlobalDataProvider
+    GlobalDataProvider,
+    MusicControlsProvider
   ]
 })
 export class AppModule {}

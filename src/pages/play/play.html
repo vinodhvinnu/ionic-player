@@ -16,18 +16,18 @@
     </ion-item>
     <ion-grid>
       <ion-row>
-        <ion-col class="control-col">
+        <ion-col class="control-col" (click)="previous()">
             <ion-icon name="md-skip-backward"></ion-icon>
         </ion-col>
         <ion-col>
             <ion-fab>
               <button ion-fab (click)="togglePlay()">
-                  <ion-icon name="play" *ngIf="!globalDataProvider.isPlaying" item-end></ion-icon>
-                  <ion-icon name="pause" *ngIf="globalDataProvider.isPlaying" item-end></ion-icon>    
+                  <ion-icon class="play-icon" name="play" *ngIf="!globalDataProvider.isPlaying" item-end></ion-icon>
+                  <ion-icon class="pause-icon" name="pause" *ngIf="globalDataProvider.isPlaying" item-end></ion-icon>    
               </button>
             </ion-fab>
         </ion-col>
-        <ion-col class="control-col">
+        <ion-col class="control-col" (click)="next()">
           <ion-icon name="md-skip-forward"></ion-icon>
         </ion-col>
       </ion-row>

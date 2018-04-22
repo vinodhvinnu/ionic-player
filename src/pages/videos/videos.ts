@@ -25,7 +25,7 @@ export class VideosPage {
       errorCallback: (e) => { console.log('Error streaming') },
       orientation: 'landscape'
     };
-    this.streamingMedia.playVideo(file.fullPath, options);
+    this.streamingMedia.playVideo(file.nativeURL, options);
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GlobalDataProvider } from '../../providers/global-data/global-data';
+import { MusicControlsProvider } from '../../providers/music-controls/music-controls';
 
 @IonicPage()
 @Component({
@@ -9,9 +10,7 @@ import { GlobalDataProvider } from '../../providers/global-data/global-data';
 })
 export class PlayPage {
 
-  public duration: number = 2.5;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public globalDataProvider: GlobalDataProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public globalDataProvider: GlobalDataProvider, public musicControlsProvider: MusicControlsProvider) {
   }
 
   ionViewDidLoad() {
@@ -19,8 +18,15 @@ export class PlayPage {
   }
 
   togglePlay(){
-    this.globalDataProvider.isPlaying ? this.globalDataProvider.currentSongInstance.pause() : this.globalDataProvider.currentSongInstance.play();
-    this.globalDataProvider.isPlaying = !this.globalDataProvider.isPlaying;
+    this.musicControlsProvider.togglePlay();
+  }
+
+  next(){
+    this.musicControlsProvider.next();
+  }
+
+  previous(){
+    this.musicControlsProvider.previous();
   }
 
 }
