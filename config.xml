@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>ionic-player</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="io.ionic.player" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>ionic player</name>
+    <description>A beatiful player designed for music lovers..</description>
+    <author email="hi@ionicframework" href="http://vinodh.vin">Vinodh Vinnu</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -86,7 +86,6 @@
     <plugin name="cordova-plugin-filepath" spec="^1.3.0" />
     <plugin name="cordova-plugin-media" spec="^5.0.2" />
     <plugin name="cordova-plugin-music-controls" spec="^2.1.4" />
-    <plugin name="com.moust.cordova.videoplayer" spec="https://github.com/moust/cordova-plugin-videoplayer.git" />
     <plugin name="com.hutchind.cordova.plugins.streamingmedia" spec="~0.1.4" />
     <engine name="android" spec="~7.0.0" />
 </widget>

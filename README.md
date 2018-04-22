@@ -1,2 +1,2 @@
-# ionic-player
+# ionic player
 Play - Music &amp; Videos 
