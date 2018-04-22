@@ -22,7 +22,7 @@ export class SongsPage {
   }
 
   public playFile(event, file) {
-    this.musicControlsProvider.play(file);
+    this.musicControlsProvider.play(file, true);
   }
 
   

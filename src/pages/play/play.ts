@@ -10,11 +10,16 @@ import { MusicControlsProvider } from '../../providers/music-controls/music-cont
 })
 export class PlayPage {
 
+  private seekToDuration: number = 0;
+  private songInterval: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public globalDataProvider: GlobalDataProvider, public musicControlsProvider: MusicControlsProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PlayPage');
+    this.getSongDuration();
+    this.getCurrentPosition();
   }
 
   togglePlay(){
@@ -22,11 +27,29 @@ export class PlayPage {
   }
 
   next(){
-    this.musicControlsProvider.next();
+    this.musicControlsProvider.next(true);
   }
 
   previous(){
-    this.musicControlsProvider.previous();
+    this.musicControlsProvider.previous(true);
+  }
+
+  seekTo(event){
+    //this.musicControlsProvider.seekTo(this.seekToDuration);
+  }
+
+  getSongDuration(){
+    this.musicControlsProvider.getSongDuration();
+  }
+
+  getCurrentPosition(){
+    this.songInterval = setInterval(()=>{
+      this.musicControlsProvider.getCurrentPosition();
+      this.seekToDuration = this.globalDataProvider.currentPosition;
+      if(!this.globalDataProvider.isPlaying){
+        clearInterval(this.songInterval);
+      }
+    }, 100);
   }
 
 }

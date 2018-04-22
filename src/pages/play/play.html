@@ -12,7 +12,10 @@
   </ion-row>
   <ion-toolbar>
     <ion-item>
-      <ion-range min="0" max="5" step="0.1" [(ngModel)]="duration"></ion-range>
+      <ion-range min="0" max="{{globalDataProvider.currentSongDuration}}" step="0.1" [(ngModel)]="seekToDuration" (ngModelChange)="seekTo($event)">
+          <!-- <ion-label range-left>{{seekToDuration}}</ion-label>
+          <ion-label range-right>{{globalDataProvider.currentSongDuration}}</ion-label> -->
+      </ion-range>
     </ion-item>
     <ion-grid>
       <ion-row>
