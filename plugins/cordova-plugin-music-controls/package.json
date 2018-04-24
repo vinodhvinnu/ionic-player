@@ -1,0 +1,107 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-plugin-music-controls@^2.1.4",
+        "scope": null,
+        "escapedName": "cordova-plugin-music-controls",
+        "name": "cordova-plugin-music-controls",
+        "rawSpec": "^2.1.4",
+        "spec": ">=2.1.4 <3.0.0",
+        "type": "range"
+      },
+      "C:\\wamp64\\www\\ionic-player"
+    ]
+  ],
+  "_from": "cordova-plugin-music-controls@>=2.1.4 <3.0.0",
+  "_id": "cordova-plugin-music-controls@2.1.4",
+  "_inCache": true,
+  "_location": "/cordova-plugin-music-controls",
+  "_nodeVersion": "9.2.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-music-controls-2.1.4.tgz_1511625383805_0.9876164081506431"
+  },
+  "_npmUser": {
+    "name": "homerours",
+    "email": "homerours@gmail.com"
+  },
+  "_npmVersion": "5.5.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-plugin-music-controls@^2.1.4",
+    "scope": null,
+    "escapedName": "cordova-plugin-music-controls",
+    "name": "cordova-plugin-music-controls",
+    "rawSpec": "^2.1.4",
+    "spec": ">=2.1.4 <3.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-music-controls/-/cordova-plugin-music-controls-2.1.4.tgz",
+  "_shasum": "a474a381b9ac029980a8e1c495c4bf57407eb228",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-music-controls@^2.1.4",
+  "_where": "C:\\wamp64\\www\\ionic-player",
+  "author": {
+    "name": "homerours"
+  },
+  "bugs": {
+    "url": "https://github.com/homerours/cordova-music-controls-plugin/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-music-controls",
+    "platforms": [
+      "android",
+      "windows",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "Music controls for Cordova apps",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-fmxUVJuNXkjkHpLq7spSiy0hS5Z9Wqbqprwl9JhLlNXLU5nrVUxXhcamPLfZeOkrycZxAF69TCWq9MhxhUyQDQ==",
+    "shasum": "a474a381b9ac029980a8e1c495c4bf57407eb228",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-music-controls/-/cordova-plugin-music-controls-2.1.4.tgz"
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.4.0"
+    }
+  ],
+  "gitHead": "8ae1fdc031bef8b7df7933c4e28e47ec6ce5d666",
+  "homepage": "https://github.com/homerours/cordova-music-controls-plugin#readme",
+  "keywords": [
+    "cordova",
+    "music",
+    "controller",
+    "controls",
+    "media",
+    "plugin",
+    "notification",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-windows"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "homerours",
+      "email": "homerours@gmail.com"
+    }
+  ],
+  "name": "cordova-plugin-music-controls",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/homerours/cordova-music-controls-plugin.git"
+  },
+  "version": "2.1.4"
+}

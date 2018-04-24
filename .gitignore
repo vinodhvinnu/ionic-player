@@ -24,12 +24,14 @@ tmp/
 temp/
 hooks/
 platforms/
-plugins/
-plugins/android.json
-plugins/ios.json
 www/
 $RECYCLE.BIN/
 
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+# Removing Plugin Files From gitignore
+# plugins/
+# plugins/android.json
+# plugins/ios.json
