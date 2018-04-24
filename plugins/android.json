@@ -1,0 +1,45 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "com.hutchind.cordova.plugins.streamingmedia": {
+      "PACKAGE_NAME": "io.ionic.player"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "io.ionic.player"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "io.ionic.player"
+    },
+    "cordova-plugin-filepath": {
+      "PACKAGE_NAME": "io.ionic.player"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "io.ionic.player"
+    },
+    "cordova-plugin-media": {
+      "PACKAGE_NAME": "io.ionic.player"
+    },
+    "cordova-plugin-music-controls": {
+      "PACKAGE_NAME": "io.ionic.player"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "io.ionic.player"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "io.ionic.player"
+    },
+    "cordova.plugins.diagnostic": {
+      "PACKAGE_NAME": "io.ionic.player"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "io.ionic.player"
+    }
+  },
+  "dependent_plugins": {}
+}

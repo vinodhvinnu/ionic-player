@@ -1,36 +1,47 @@
 package com.hutchind.cordova.plugins.streamingmedia;
 
 import android.app.Activity;
-import android.content.res.Configuration;
-import android.graphics.Color;
-import android.graphics.Point;
-import android.media.MediaPlayer;
-import android.widget.MediaController;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.view.MotionEvent;
+import android.content.res.Configuration;
+import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Display;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.MediaController;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+
+import android.content.Context;
+import android.util.AttributeSet;
 import android.widget.VideoView;
 
 public class SimpleVideoStream extends Activity implements
 	MediaPlayer.OnCompletionListener, MediaPlayer.OnPreparedListener,
 	MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
 	private String TAG = getClass().getSimpleName();
-	private VideoView mVideoView = null;
+	private CustomVideoView mVideoView = null;
 	private MediaPlayer mMediaPlayer = null;
 	private MediaController mMediaController = null;
 	private ProgressBar mProgressBar = null;
 	private String mVideoUrl;
 	private Boolean mShouldAutoClose = true;
+
+	static final int MIN_WIDTH = 100;
+	// Root view's LayoutParams
+	private RelativeLayout.LayoutParams mRootParam;
+	// Custom Video View
+	// detector to pinch zoom in/out
+	private ScaleGestureDetector mScaleGestureDetector;
+	// detector to single tab
+	private GestureDetector mGestureDetector;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +55,12 @@ public class SimpleVideoStream extends Activity implements
 		mShouldAutoClose = mShouldAutoClose == null ? true : mShouldAutoClose;
 
 		RelativeLayout relLayout = new RelativeLayout(this);
+
 		relLayout.setBackgroundColor(Color.BLACK);
 		RelativeLayout.LayoutParams relLayoutParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+		mRootParam = relLayoutParam;
 		relLayoutParam.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
-		mVideoView = new VideoView(this);
+		mVideoView = new CustomVideoView(this);
 		mVideoView.setLayoutParams(relLayoutParam);
 		relLayout.addView(mVideoView);
 
@@ -81,6 +94,18 @@ public class SimpleVideoStream extends Activity implements
 			mMediaController.setAnchorView(mVideoView);
 			mMediaController.setMediaPlayer(mVideoView);
 			mVideoView.setMediaController(mMediaController);
+
+			mScaleGestureDetector = new ScaleGestureDetector(this, new MyScaleGestureListener());
+			mGestureDetector = new GestureDetector(this, new MySimpleOnGestureListener());
+			mVideoView.setOnTouchListener(new View.OnTouchListener() {
+
+				@Override
+				public boolean onTouch(View v, MotionEvent event) {
+					mGestureDetector.onTouchEvent(event);
+					mScaleGestureDetector.onTouchEvent(event);
+					return true;
+				}
+			});
 		} catch (Throwable t) {
 			Log.d(TAG, t.toString());
 		}
@@ -191,10 +216,94 @@ public class SimpleVideoStream extends Activity implements
 		super.onConfigurationChanged(newConfig);
 	}
 
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		if (mMediaController != null)
-			mMediaController.show();
-		return false;
+//	@Override
+//	public boolean onTouchEvent(MotionEvent event) {
+//		if (mMediaController != null)
+//			mMediaController.show();
+//		return false;
+//	}
+
+
+	private class MySimpleOnGestureListener extends GestureDetector.SimpleOnGestureListener {
+
+		@Override
+		public boolean onSingleTapConfirmed(MotionEvent e) {
+			/*if (mVideoView == null)
+				return false;
+			if (mVideoView.isPlaying())
+				mVideoView.pause();
+			else
+				mVideoView.start();*/
+			if(mMediaController != null){
+				if ( mMediaController.isShowing()){
+					mMediaController.hide();
+				}else{
+					mMediaController.show();
+				}
+			}
+
+			return true;
+		}
+
 	}
+
+	private class MyScaleGestureListener implements ScaleGestureDetector.OnScaleGestureListener {
+		private int mW, mH;
+
+		@Override
+		public boolean onScale(ScaleGestureDetector detector) {
+			// scale our video view
+			mW *= detector.getScaleFactor();
+			mH *= detector.getScaleFactor();
+			if (mW < MIN_WIDTH) { // limits width
+				mW = mVideoView.getWidth();
+				mH = mVideoView.getHeight();
+			}
+			Log.d("onScale", "scale=" + detector.getScaleFactor() + ", w=" + mW + ", h=" + mH);
+			mVideoView.setFixedVideoSize(mW, mH); // important
+			mRootParam.width = mW;
+			mRootParam.height = mH;
+			return true;
+		}
+
+		@Override
+		public boolean onScaleBegin(ScaleGestureDetector detector) {
+			mW = mVideoView.getWidth();
+			mH = mVideoView.getHeight();
+			Log.d("onScaleBegin", "scale=" + detector.getScaleFactor() + ", w=" + mW + ", h=" + mH);
+			return true;
+		}
+
+		@Override
+		public void onScaleEnd(ScaleGestureDetector detector) {
+			Log.d("onScaleEnd", "scale=" + detector.getScaleFactor() + ", w=" + mW + ", h=" + mH);
+		}
+
+	}
+}
+
+class CustomVideoView extends VideoView {
+
+    public CustomVideoView(Context context) {
+        super(context);
+    }
+
+    public CustomVideoView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public CustomVideoView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+    }
+
+
+    /**
+     * Resize video view by using SurfaceHolder.setFixedSize(...). See {@link android.view.SurfaceHolder#setFixedSize}
+     * @param width
+     * @param height
+     */
+    public void setFixedVideoSize(int width, int height)
+    {
+        getHolder().setFixedSize(width, height);
+    }
 }
