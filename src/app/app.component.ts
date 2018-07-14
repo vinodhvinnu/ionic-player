@@ -39,7 +39,7 @@ export class IonicPlayer {
           this.getFileList(item.name);
         } else if (item.isFile == true && item.name.includes('.mp3') && !item.fullPath.includes('WhatsApp') && !item.fullPath.includes('Android')) {
           this.globalDataProvider.songsList.push({ index: this.globalDataProvider.songsList.length+1, name: item.name, fullPath: item.fullPath, nativeURL: item.nativeURL });
-        } else if (item.isFile == true && item.name.includes('.mp4') && !item.fullPath.includes('WhatsApp') && !item.fullPath.includes('Android')) {
+        } else if (item.isFile == true && item.name.includes('.mp4') && !item.fullPath.includes('Unseenly') && !item.fullPath.includes('WhatsApp') && !item.fullPath.includes('Android')) {
           this.globalDataProvider.videosList.push({ index: this.globalDataProvider.videosList.length+1, name: item.name, fullPath: item.fullPath, nativeURL: item.nativeURL });
         }
       }
@@ -57,7 +57,7 @@ export class IonicPlayer {
         }  else if (item.isFile == true && item.name.includes('.mp3') && !item.fullPath.includes('WhatsApp') && !item.fullPath.includes('Android')) {
           //console.log(item);
           this.globalDataProvider.songsList.push({ index: this.globalDataProvider.songsList.length+1, name: item.name, fullPath: item.fullPath, nativeURL: item.nativeURL });
-        } else if (item.isFile == true && item.name.includes('.mp4') && !item.fullPath.includes('WhatsApp') && !item.fullPath.includes('Android')) {
+        } else if (item.isFile == true && item.name.includes('.mp4') && !item.fullPath.includes('Unseenly') &&  !item.fullPath.includes('WhatsApp') && !item.fullPath.includes('Android')) {
           this.globalDataProvider.videosList.push({ index: this.globalDataProvider.videosList.length+1, name: item.name, fullPath: item.fullPath, nativeURL: item.nativeURL });
         }
       }
